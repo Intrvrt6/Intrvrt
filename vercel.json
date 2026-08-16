@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "functions": {"api/*.js": {"maxDuration": 10}},
+  "rewrites": [
+    {"source":"/api/market","destination":"/api/market.js"},
+    {"source":"/api/candles","destination":"/api/candles.js"}
+  ]
+}
