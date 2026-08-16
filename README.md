@@ -1,1 +1,21 @@
-# Intrvrt
+name: End to End Tests
+ 
+on:
+- deployment_status:
++ repository_dispatch:
++   types:
++    - 'vercel.deployment.success'
+jobs:
+  run-e2es:
+-   if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
++   if: github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install dependencies
+        run: npm ci && npx playwright install --with-deps
+      - name: Run tests
+        run: npx playwright test
+        env:
+-         BASE_URL: ${{ github.event.deployment_status.environment_url }}
++         BASE_URL: ${{ github.event.client_payload.url }}# Intrvrt
