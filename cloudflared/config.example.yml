@@ -1,0 +1,11 @@
+# Copy to your cloudflared config directory as config.yml.
+# Keep the real tunnel credentials outside GitHub.
+tunnel: YOUR_TUNNEL_UUID
+credentials-file: /PATH/TO/YOUR_TUNNEL_CREDENTIALS.json
+
+ingress:
+  - hostname: api.YOUR_DOMAIN
+    service: http://127.0.0.1:8787
+  - hostname: ws.YOUR_DOMAIN
+    service: http://127.0.0.1:8787
+  - service: http_status:404
