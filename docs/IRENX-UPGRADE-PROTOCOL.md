@@ -26,3 +26,6 @@ Every `IRENX upgrade` is treated as a system change, not a UI-only change.
 5. Verify Cloudflare route and persistent gateway/WebSocket.
 6. Verify `/api/health`, `/api/market`, `/api/candles`, `/api/analyze`.
 7. Only then enable live signal display.
+
+## Upgrade v3.7
+The next production gate is deployment validation. A GitHub commit alone is not considered a live deployment. Vercel, Twelve Data, Cloudflare, and the persistent Gateway must each be independently reachable and healthy before IRENX can report LIVE.
